@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>喜羊羊</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            position: absolute;
+            top:0;
+            left:0;
+        }
+
+        /* 整个头部------------------------------------------ */
+        .header{
+            width: 230px;
+            height: 190px;
+            position: relative;
+            margin:120px auto;
+            background:rgb(241,196,165);
+            border-radius:50%;
+            border: 1px solid rgb(90,42,48);
+            z-index: 2;
+        }
+
+        /* 眉毛区域--------------------------------------------- */
+        .header div[class^=eyebrows]{
+            position: absolute;
+            top:57px;
+            left:53px;
+            background-color: black;
+            width: 40px;
+            height: 10px;
+            border-radius:20px 20px 0 0/10px 10px 0 0; /* 半椭圆的写法 */
+            transform: rotate(12deg)
+        }
+        div[class^=eyebrows]::before{    /* 通过一个脸部颜色的伪元素遮盖椭圆下半部达到弯曲效果 */
+            content:'';
+            width: 60px;
+            height: 25px;
+            border-radius:50%;
+            position:absolute;
+            left:-11px;
+            top:5px;
+            background:rgb(241,196,165);
+        }
+        .box .header .eyebrowsright{
+            position: absolute;
+            left: 130px;
+            top: 56px;
+            transform: rotate(-12deg)
+        }
+
+        /* 眼睛区域-------------------------------------------- */
+        .header div[class^=eyes]{
+            width: 39px;
+            height: 39px;
+            border-radius: 50%;
+            background-color: #fff;
+            position: absolute;
+            left:56px;
+            top:72px;
+            border:1px solid rgb(90,42,48);
+            z-index: 3;
+        }
+        .header div[class^=eyes]::before{
+            content:'';
+            width: 19px;
+            height: 19px;
+            position: absolute;
+            left:10px;
+            top:10px;
+            border-radius:50%;
+            background-color:black;
+        }
+        .header div[class^=eyes]::after{
+            content:'';
+            width: 5px;
+            height: 5px;
+            position: absolute;
+            left:13px;
+            top:13px;
+            border-radius:50%;
+            background-color:white;
+        }
+        .box .header .eyesright{
+            left:132px;
+            top:75px;
+        }
+
+        /* 鼻子区域----------------------------------------------- */
+        .header .nose{
+            width: 30px;
+            height: 18px;
+            background-color: black;
+            border-radius: 50%;
+            position: absolute;
+            left:98px;
+            top:117px;
+            z-index: 5;
+        }
+        .header .nose::before{
+            content:'';
+            width: 16px;
+            height: 9px;
+            position: absolute;
+            left:3px;
+            top:3px;
+            border-radius:50%;
+            background:hsla(0, 0%, 96%, 0.4);
+        }
+        .header .nose::after{
+            content:'';
+            width: 8px;
+            height: 5px;
+            position: absolute;
+            left:3px;
+            top:4px;
+            border-radius:50%;
+            background:white;
+        }
+
+        /* 嘴巴区域------------------------------------------------- */
+        .header .mouth{
+            width: 56px;
+            height: 28px;
+            border-radius:28px 28px 0 0/28px 28px 0 0; /* 嘴巴椭圆 */
+            background:rgb(215,87,84);
+            transform: rotate(182deg);
+            border:1px solid rgb(90,42,48);
+            position:absolute;
+            top:144px;
+            left:85px;
+            z-index: 3
+        }
+        .header .cover{  /*  嘴巴弧线实际上是一个椭圆,用该cover盖起来了一部分 */
+            width: 100px;
+            height: 25px;
+            position: absolute;
+            top:115px;
+            left:48px;
+            background-color: rgb(241,196,165);
+            z-index: 4;
+        }
+        .header .cover1{ /* 嘴巴弧线实际上是一个椭圆,用该cover盖起来了一部分 */
+            width: 105px;
+            height: 25px;
+            position: absolute;
+            top:163.2px;
+            left:64px;
+            border-radius:50%;
+            background-color: rgb(241,196,165);
+            z-index: 2;
+        }
+        .header .mouth::before{
+            content:'';
+            width: 75px;
+            height: 20px;
+            border:1px solid rgb(90,42,48);
+            border-radius:50%;
+            position:absolute;
+            left:-8px;
+            top:23px;
+            background:rgb(241,196,165);
+            transform: rotate(3deg)
+        }
+        .header .mouth::after{
+            content:'';
+            background-color: rgb(219,137,139);
+            width: 25.5px;
+            height: 25.5px;
+            position: absolute;
+            left:20px;
+            top:-6px;
+            border-radius:25.5px 0;
+            transform: rotate(58deg);
+            border:1px solid rgb(90,42,48);
+        }
+
+        /* 铃铛区域 */
+        .rope{
+            width:84px;
+            height: 22px;
+            border-radius: 50%;
+            position:absolute;
+            top:174px;
+            left:78px;
+            background-color: rgb(48,79,143);
+            z-index: 1;
+        }
+        .header .rope .bell{
+            width: 24px;
+            height: 24px;
+            border-radius:50%;
+            border: 1px solid rgb(90,42,48);
+            position: absolute;
+            top: 14px;
+            left:32px;
+            background-color: rgb(243,192,74);
+        }
+        .header .bell::before{
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius:50%;
+            position: absolute;
+            top:7px;
+            left: 9px;
+            background-color: black;
+        }
+        .header .bell::after{
+            content: '';
+            width: 10px;
+            height: 1px;
+            position:absolute;
+            top: 18px;
+            left:9.5px;
+            background-color: black;
+            transform:rotate(80deg)
+        }
+
+        /* 头发区域------------------------- */
+        .header .hair div[class^=uhair]{
+            width: 8px;
+            height: 20px;
+            border: 1px solid rgb(90,42,48);
+            border-radius:100% 0 0 100%/50%;
+            border-right: none;
+            background-color: #fff;
+            position: absolute;
+            z-index: 6;
+        }
+        .box .header .hair .uhair1{
+            width: 10px;
+            height: 24px;
+            transform: rotate(36deg);
+            top:-10px;
+            left:19px;
+        }
+        .box .header .hair .uhair2{
+            width: 10px;
+            height: 24px;
+            transform: rotate(32deg);
+            top:12px;
+            left:4px;
+        }
+        .box .header .hair .uhair3{
+            transform: rotate(25deg);
+            top:36px;
+            left:-6px;
+        }
+        .box .header .hair .uhair4{
+            transform: rotate(16deg);
+            top:56px;
+            left:-12px;
+        }
+        .box .header .hair .uhair5{
+            transform: rotate(8deg);
+            top:77px;
+            left:-14px;
+        }
+        .box .header .hair .uhair6{
+            transform: rotate(-3deg);
+            top:98px;
+            left:-12px;
+        }
+        .box .header .hair .uhair7{
+            transform: rotate(-13deg);
+            top:120px;
+            left:-7px;
+        }
+        .box .header .hair .uhair8{
+            transform: rotate(-28deg);
+            top:139px;
+            left:3px;
+        }
+        .box .header .hair .uhair9{
+            transform: rotate(-40deg);
+            top:156px;
+            left:17px;
+        }
+        .box .header .hair .uhair10{
+            width: 14px;
+            height: 32px;
+            transform: rotate(-108deg);
+            top:158px;
+            left:42px;
+        }
+        .box .header .hair .uhair11{
+            width: 10px;
+            height: 24px;
+            transform: rotate(-216deg);
+            top:141px;
+            left:55px;
+        }
+        .box .header .hair .uhair12{
+            width: 10px;
+            height: 22px;
+            transform: rotate(-205deg);
+            top:121px;
+            left:43px;
+        }
+        .box .header .hair .uhair13{
+            transform: rotate(-193deg);
+            top:102px;
+            left:35px;
+        }
+        .box .header .hair .uhair14{
+            transform: rotate(-180deg);
+            top:81px;
+            left:33px;
+        }
+        .box .header .hair .uhair15{
+            transform: rotate(-160deg);
+            top:60px;
+            left:36px;
+        }
+        .box .header .hair .uhair16{
+            transform: rotate(-140deg);
+            top:41px;
+            left:44px;
+        }
+        .box .header .hair .uhair17{
+            transform: rotate(-115deg);
+            top:28px;
+            left:59px;
+        }
+        .box .header .hair .uhair18{ /* 发型区域 */
+            width: 10px;
+            height: 78px;
+            transform: rotate(-90deg);
+            top:-5px;
+            left:106px;
+        }
+        .box .header .hair .uhair19{
+            width: 10px;
+            height: 22px;
+            transform: rotate(-60deg);
+            top:28px;
+            left:154px;
+        }
+        .box .header .hair .uhair20{
+            width: 10px;
+            height: 22px;
+            transform: rotate(-45deg);
+            top:42px;
+            left:172px;
+        }
+        .box .header .hair .uhair21{
+            transform: rotate(-20deg);
+            top:59px;
+            left:184px;
+        }
+        .box .header .hair .uhair22{
+            transform: rotate(-5deg);
+            top:79px;
+            left:188px;
+        }
+        .box .header .hair .uhair23{
+            width: 10px;
+            height: 24px;
+            transform: rotate(10deg);
+            top:99px;
+            left:184px;
+        }
+        .box .header .hair .uhair24{
+            width: 10px;
+            height: 22px;
+            transform: rotate(20deg);
+            top:124px;
+            left:179px;
+        }
+        .box .header .hair .uhair25{
+            transform: rotate(15deg);
+            top:147px;
+            left:175px;
+        }
+        .box .header .hair .uhair26{
+            width: 10px;
+            height: 16px;
+            transform: rotate(-60deg);
+            top:169px;
+            left:182px;
+        }
+        .box .header .hair .uhair27{
+            transform: rotate(-132deg);
+            top:161px;
+            left:203px;
+        }
+        .box .header .hair .uhair28{
+            transform: rotate(-150deg);
+            top:146px;
+            left:218px;
+        }
+        .box .header .hair .uhair29{
+            transform: rotate(-160deg);
+            top:126px;
+            left:227px;
+        }
+        .box .header .hair .uhair30{
+            transform: rotate(-170deg);
+            top:105px;
+            left:231px;
+        }
+        .box .header .hair .uhair31{
+            transform: rotate(-178deg);
+            top:83px;
+            left:233px;
+        }
+        .box .header .hair .uhair32{
+            transform: rotate(-186deg);
+            top:62px;
+            left:233px;
+        }
+        .box .header .hair .uhair33{
+            transform: rotate(-198deg);
+            top:41px;
+            left:227px;
+        }
+        .box .header .hair .uhair34{
+            transform: rotate(-216deg);
+            top:21px;
+            left:217px;
+        }
+        .box .header .hair .uhair35{
+            width: 10px;
+            height: 24px;
+            transform: rotate(-222deg);
+            top:-2px;
+            left:204px;
+        }
+        .box .header .hair .uhair36{
+            width: 10px;
+            height: 24px;
+            transform: rotate(-228deg);
+            top:-20px;
+            left:188px;
+        }
+        .box .header .hair .uhair37{
+            width: 10px;
+            height: 24px;
+            transform: rotate(-236deg);
+            top:-32px;
+            left:165px;
+        }
+        .box .header .hair .uhair38{
+            width: 10px;
+            height: 24px;
+            transform: rotate(-251deg);
+            top:-42px;
+            left:141px;
+        }
+        .box .header .hair .uhair39{
+            width: 10px;
+            height: 24px;
+            transform: rotate(-272deg);
+            top:-46px;
+            left:115px;
+        }
+        .box .header .hair .uhair40{
+            width: 10px;
+            height: 24px;
+            transform: rotate(-282deg);
+            top:-44px;
+            left:89px;
+        }
+        .box .header .hair .uhair41{
+            width: 10px;
+            height: 24px;
+            transform: rotate(-292deg);
+            top:-37px;
+            left:64px;
+        }
+        .box .header .hair .uhair42{
+            width: 10px;
+            height: 24px;
+            transform: rotate(-298deg);
+            top:-27px;
+            left:40px;
+        }
+        .header .cover2{
+            border:50px solid white;
+            width: 200px;
+            height: 200px;
+            z-index: 5;
+            position:absolute;
+            left: -36px;
+            top: -27px;
+            border-radius: 50%;
+        }
+        .header .cover3{
+            width: 100px;
+            height: 100px;
+            z-index: 5;
+            position:absolute;
+            left: -62px;
+            top: 36px;
+            background-color: white;
+            transform:rotate(10deg)
+        }
+        .header .cover4{
+            width: 100px;
+            height: 100px;
+            z-index: 5;
+            position:absolute;
+            left: -54px;
+            top: 96px;
+            background-color: white;
+            transform:rotate(-30deg)
+        }
+        .header .cover5{
+            width: 100px;
+            height: 100px;
+            z-index: 5;
+            position:absolute;
+            left: 191px;
+            top: 83px;
+            background-color: white;
+            transform:rotate(14deg)
+        }
+        .header .cover6{
+            width: 100px;
+            height: 100px;
+            z-index: 5;
+            position:absolute;
+            left: 190px;
+            top: 20px;
+            background-color: white;
+            transform:rotate(-24deg)
+        }
+        .header .cover7{
+            width: 100px;
+            height: 50px;
+            z-index: 5;
+            position:absolute;
+            left: 66px;
+            top: -20px;
+            background-color: white;
+        }
+        .header .cover8{
+            width: 80px;
+            height: 20px;
+            z-index: 5;
+            transform: rotate(30deg);
+            position:absolute;
+            left: 80px;
+            top: -8px;
+            background-color: white;
+            z-index: 8;
+        }
+        .header .cover9{
+            width: 35px;
+            height: 35px;
+            z-index: 5;
+            transform: rotate(30deg);
+            position:absolute;
+            left: 2px;
+            top: 35px;
+            background-color: white;
+            z-index: 8;
+        }
+        .header .cover10{
+            width: 35px;
+            height: 35px;
+            z-index: 5;
+            transform: rotate(-30deg);
+            position:absolute;
+            left: 193px;
+            top: 36px;
+            background-color: white;
+            z-index: 8;
+        }
+        .box .header .hair .hairstyle{ /* 前面的刘海发型 */
+            width: 70px;
+            height: 60px;
+            background-color: white;
+            position: absolute;
+            left:77px;
+            top:-5px;
+            z-index:7;
+            border-radius: 50%;
+            transform:rotate(15deg);
+            border: 1px solid rgb(90,42,48);
+        }
+        .box .header .hair .hairstyle::before{
+            content:'';
+            width: 30px;
+            height: 16px;
+            border: 1px solid rgb(90,42,48);
+            position:absolute;
+            left:42px;
+            top: 11px;
+            border-radius: 50%;
+            transform:rotate(60deg)
+        }
+
+        /* 耳朵区域----------------------------- */
+        .box .header .leftear{
+            width: 40px;
+            height: 25px;
+            border: 1px solid rgb(90,42,48);
+            border-radius:0 20px;
+            border-right: none;
+            background-color: rgb(244,191,159);
+            position: absolute;
+            top:31px;
+            left:-21px;
+            transform: rotate(-50deg);
+            z-index: 5;
+        }
+        .box .header .rightear{   /* 叶子一样的形状!!!!!!!!!!!!!!!! */
+            width: 40px;
+            height: 25px;
+            border: 1px solid rgb(90,42,48);
+            border-radius:20px 0;
+            border-right: none;
+            background-color: rgb(244,191,159);
+            position: absolute;
+            top:35px;
+            left:209px;
+            transform: rotate(50deg);
+            z-index: 5;
+        }
+        
+        /* 羊角区域------------------------------------------------ */
+        .box .header .lefthorn{
+            position: absolute;
+            top:-28px;
+            left:-28px;
+            background-color: rgb(135,110,70);
+            border:1px solid rgb(82,65,57);
+            width: 120px;
+            height: 30px;
+            border-radius:60px 60px 0 0/30px 30px 0 0; /* 半椭圆的写法 */
+            transform: rotate(30deg)
+        }
+        .box .header .righthorn{
+            position: absolute;
+            top:-24px;
+            left:138px;
+            background-color: rgb(135,110,70);
+            border:1px solid rgb(82,65,57);
+            width: 120px;
+            height: 30px;
+            border-radius:0 0 60px 60px/0 0 30px 30px; /* 半椭圆的写法 */
+            transform: rotate(150deg)
+        }
+        .box .header div[class^=xiantiao]{
+            width: 2px;
+            height: 20px;
+            border: 1px solid rgb(71,51,40);
+            border-radius:100% 0 0 100%/50%;
+            border-right: none;
+            background-color: rgb(135,110,70);
+            position: absolute;
+            left: 15px;
+            top:9px;
+        }
+        body .box .header .lefthorn .xiantiao2{
+            width: 3px;
+            height: 24px;
+            left: 31px;
+            top:2px;
+            transform: rotate(5deg)
+        }
+        body .box .header .lefthorn .xiantiao3{
+            width: 2px;
+            height: 28px;
+            left: 48px;
+            top:0px;
+            transform: rotate(10deg)
+        }
+         body .box .header .righthorn .xiantiao4{
+            width: 2px;
+            left: 17px;
+            top:1px;
+            transform: rotate(10deg)
+        }
+        body .box .header .righthorn .xiantiao5{
+            width: 2px;
+            height: 22px;
+            left: 33px;
+            top:2px;
+            transform: rotate(-5deg)
+        }
+        body .box .header .righthorn .xiantiao6{
+            width: 2px;
+            height: 28px;
+            left: 47px;
+            top:2px;
+            transform: rotate(-15deg)
+        }
+        .box .header .leftcover{
+            position: absolute;
+            top:-19px;
+            left:-33px;
+            background-color: white;
+            width: 56px;
+            height: 8px;
+            border-radius:28px 28px 0 0/8px 8px 0 0; /* 半椭圆的写法 */
+            transform: rotate(30deg);
+            z-index: 10;
+        }
+        .box .header .rightcover{
+            position: absolute;
+            top:-16px;
+            left:208px;
+            background-color: white;
+            width: 56px;
+            height: 8px;
+            border-radius:28px 28px 0 0/8px 8px 0 0; /* 半椭圆的写法 */
+            transform: rotate(-30deg);
+            z-index: 10;
+        }       
+    </style>
+</head>
+<body>
+    <img src="../timg (3).jpg" alt="">
+    <div class="box">
+        <div class="header">
+            <!-- 眉毛 -->
+            <div class="eyebrowsleft"></div>
+            <div class="eyebrowsright"></div>
+            
+            <!-- 眼睛 -->
+            <div class="eyesleft"></div>
+            <div class="eyesright"></div>
+
+            <!-- 鼻子 -->
+            <div class="nose"></div>
+
+            <!-- 嘴巴 -->
+            <div class="cover"></div> <!-- 盖子 -->
+            <div class="mouth"></div>
+
+            <!-- 铃铛 -->
+            <div class="cover1"></div>
+            <div class="rope">
+                <div class="bell"></div>
+            </div>
+
+            <!-- 头上的毛毛 -->
+            <div class="cover2"></div> <!-- 遮挡层把多余的脸部挡住 圆形-->  
+            <div class="cover3"></div> <!-- 遮挡层把多余的脸部挡住 正方形-->
+            <div class="cover4"></div> <!-- 遮挡层把多余的脸部挡住 正方形-->
+            <div class="cover5"></div> <!-- 遮挡层把多余的脸部挡住 正方形-->
+            <div class="cover6"></div> <!-- 遮挡层把多余的脸部挡住 正方形-->
+            <div class="cover7"></div> <!-- 遮挡层把多余的脸部挡住 正方形-->
+            <div class="cover8"></div> <!-- 遮挡层把多余的脸部挡住 长方形-->
+            <div class="cover9"></div> <!-- 遮挡层把多余的脸部挡住 长方形-->
+            <div class="cover10"></div> <!-- 遮挡层把多余的脸部挡住 长方形-->
+            <div class="hair">
+                <div class="hairstyle"></div>
+
+                <div class="uhair1"></div>
+                <div class="uhair2"></div>
+                <div class="uhair3"></div>
+                <div class="uhair4"></div>
+                <div class="uhair5"></div>
+                <div class="uhair6"></div>
+                <div class="uhair7"></div>
+                <div class="uhair8"></div>
+                <div class="uhair9"></div>
+                <div class="uhair10"></div>
+                <div class="uhair11"></div>
+                <div class="uhair12"></div>
+                <div class="uhair13"></div>
+                <div class="uhair14"></div>
+                <div class="uhair15"></div>
+                <div class="uhair16"></div>
+                <div class="uhair17"></div>
+                <div class="uhair18"></div>
+                <div class="uhair19"></div>
+                <div class="uhair20"></div>
+                <div class="uhair21"></div>
+                <div class="uhair22"></div>
+                <div class="uhair23"></div>
+                <div class="uhair24"></div>
+                <div class="uhair25"></div>
+                <div class="uhair26"></div>
+                <div class="uhair27"></div>
+                <div class="uhair28"></div>
+                <div class="uhair29"></div>
+                <div class="uhair30"></div>
+                <div class="uhair31"></div>
+                <div class="uhair32"></div>
+                <div class="uhair33"></div>
+                <div class="uhair34"></div>
+                <div class="uhair35"></div>
+                <div class="uhair36"></div>
+                <div class="uhair37"></div>
+                <div class="uhair38"></div>
+                <div class="uhair39"></div>
+                <div class="uhair40"></div>
+                <div class="uhair41"></div>
+                <div class="uhair42"></div>
+            </div>
+
+            <!-- 耳朵 -->
+            <div class="leftear"></div>
+            <div class="rightear"></div>
+
+            <!-- 羊角 -->
+            <div class="lefthorn">
+                <div class="xiantiao1"></div>
+                <div class="xiantiao2"></div>
+                <div class="xiantiao3"></div>
+            </div>
+            <div class="leftcover"></div>
+            <div class="righthorn">
+                <div class="xiantiao4"></div>
+                <div class="xiantiao5"></div>
+                <div class="xiantiao6"></div>
+            </div>
+            <div class="rightcover"></div>
+        </div>
+    </div>
+</body>
+</html>
