@@ -184,11 +184,11 @@
 
         /* 铃铛区域 */
         .rope{
-            width:84px;
+            width:86px;
             height: 22px;
             border-radius: 50%;
             position:absolute;
-            top:174px;
+            top:176px;
             left:78px;
             background-color: rgb(48,79,143);
             z-index: 1;
@@ -200,7 +200,7 @@
             border: 1px solid rgb(90,42,48);
             position: absolute;
             top: 14px;
-            left:32px;
+            left:36px;
             background-color: rgb(243,192,74);
         }
         .header .bell::before{
@@ -224,7 +224,7 @@
             transform:rotate(80deg)
         }
 
-        /* 头发区域------------------------- */
+        /* 羊毛区域------------------------- */
         .header .hair div[class^=uhair]{
             width: 8px;
             height: 20px;
@@ -575,7 +575,9 @@
             background-color: white;
             z-index: 8;
         }
-        .box .header .hair .hairstyle{ /* 前面的刘海发型 */
+
+        /* 前面的刘海发型------------------------------------------------ */
+        .box .header .hair .hairstyle{ 
             width: 70px;
             height: 60px;
             background-color: white;
@@ -716,7 +718,323 @@
             border-radius:28px 28px 0 0/8px 8px 0 0; /* 半椭圆的写法 */
             transform: rotate(-30deg);
             z-index: 10;
-        }       
+        } 
+
+        /* 身体区域----------------------------------------------- */ 
+        .body0{
+            position: absolute!important;
+            left:-566px;
+            top:311px;
+        }
+        .body0 div[class^=uhair]{
+            width: 8px;
+            height: 20px;
+            border: 1px solid rgb(90,42,48);
+            border-radius:100% 0 0 100%/50%;
+            border-right: none;
+            background-color: #fff;
+            position: absolute;
+            z-index: 6;
+        }
+        .box .body0{
+            position:relative;
+        }
+        .box .body0 .uhair43{
+             width: 2px;
+             height: 18px;
+             transform: rotate(26deg);
+             top:-130px;
+             left:631px;
+        }
+        .box .body0 .uhair44{
+             width: 3px;
+             height: 18px;
+             transform: rotate(12deg);
+             top:-112px;
+             left:624px;
+        }
+        .box .body0 .uhair45{
+             width: 2px;
+             height: 18px;
+             transform: rotate(2deg);
+             top:-93px;
+             left:622px;
+        }
+        .box .body0 .uhair46{
+             width: 2px;
+             height: 18px;
+             transform: rotate(-10deg);
+             top:-74px;
+             left:624px;
+        }
+        .box .body0 .uhair47{
+             width: 3px;
+             height: 20px;
+             transform: rotate(-30deg);
+             top:-57px;
+             left:631px;
+        }
+        .box .body0 .uhair48{
+             width: 4px;
+             height: 22px;
+             transform: rotate(-75deg);
+             top:-45px;
+             left:647px;
+        }
+        .box .body0 .uhair49{
+             width: 3px;
+             height: 18px;
+             transform: rotate(-80deg);
+             top:-38px;
+             left:667px;
+        }
+        .box .body0 .uhair50{
+             width: 4px;
+             height: 20px;
+             transform: rotate(-90deg);
+             top:-38px;
+             left:687px;
+        }
+        .box .body0 .uhair51{
+             width: 4px;
+             height: 20px;
+             transform: rotate(-105deg);
+             top:-40px;
+             left:708px;
+        }
+        .box .body0 .uhair52{
+             width: 4px;
+             height: 24px;
+             transform: rotate(-115deg);
+             top:-48px;
+             left:725px;
+        }
+        .box .body0 .uhair53{
+             width: 4px;
+             height: 20px;
+             transform: rotate(-138deg);
+             top:-58px;
+             left:740px;
+        }
+        .box .body0 .uhair54{
+             width: 3px;
+             height: 18px;
+             transform: rotate(-175deg);
+             top:-75px;
+             left:749px;
+        }
+        .box .body0 .uhair55{
+             width: 3px;
+             height: 18px;
+             transform: rotate(-185deg);
+             top:-94px;
+             left:749px;
+        }
+        .box .body0 .uhair56{
+             width: 5px;
+             height: 22px;
+             transform: rotate(-200deg);
+             top:-116px;
+             left:744px;
+        }
+        .box .body0 .uhair57{
+             width: 3px;
+             height: 18px;
+             transform: rotate(-215deg);
+             top:-132px;
+             left:738px;
+        }
+
+        /*  手和脚区域 --------------------------------------------------------*/
+
+        /* 手--------------------- */
+        body .box .body0 .hand .handleft{
+            width: 60px;
+            height: 10px;
+            border: 1px solid rgb(90,42,48);
+            border-radius:0 36px 10px 0;
+            border-right: none;
+            background-color: rgb(241,196,165);
+            position: relative;
+            z-index: 20;
+            top:-100px;
+            left: 583px;
+            transform:rotate(-60deg)
+        }
+        body .box .body0 .hand .handleft::after{
+            content:'';
+            width: 28px;
+            height: 28px;
+            position: absolute;
+            top:-10px;
+            left: -20px;
+            border: 1px solid rgb(90,42,48);
+            border-radius:50%;
+            background-color: rgb(241,196,165);
+            
+        }
+        body .box .body0 .hand .handleft::before{
+            content:'';
+            width: 10px;
+            position: absolute;
+            top:-5px;
+            left: -17px;
+            z-index: 8;
+            border: 1px solid rgb(90,42,48);
+        }
+        body .box .body0 .hand .handright{
+            width: 60px;
+            height: 10px;
+            border: 1px solid rgb(90,42,48);
+            border-radius:0 10px 36px 0;
+            border-right: none;
+            background-color: rgb(241,196,165);
+            position: relative;
+            z-index: 20;
+            top:-115px;
+            left: 725px;
+            transform:rotate(-120deg)
+        }
+        body .box .body0 .hand .handright::after{
+            content:'';
+            width: 28px;
+            height: 28px;
+            position: absolute;
+            top:-10px;
+            left: -20px;
+            border: 1px solid rgb(90,42,48);
+            border-radius:50%;
+            background-color: rgb(241,196,165)
+        }
+        body .box .body0 .hand .handright::before{
+            content:'';
+            width: 8px;
+            position: absolute;
+            top:13px;
+            left: -17px;
+            z-index: 8;
+            border: 1px solid rgb(90,42,48);
+        }
+
+        .header1,.header2{
+            height: 20px;
+            width: 10px;
+            position:relative;
+        }
+       
+        body .box .body0 .hand .hander1::before{
+             content:'';
+             width: 8px;
+             position: absolute;
+             top:-56px;
+             left: 594px;
+             z-index: 25;
+             transform:rotate(-60deg);
+             border: 1px solid rgb(90,42,48);
+        }
+
+         body .box .body0 .hand .hander1::after{
+            content:'';
+            width: 10px;
+            position: absolute;
+            top:-59px;
+            left: 585px;
+            z-index: 25;
+            transform:rotate(-60deg);
+            border: 1px solid rgb(90,42,48);
+         }
+
+        body .box .body0 .hand .hander2::after{
+            content:'';
+            width: 10px;
+            position: absolute;
+            top:-61px;
+            left: 772px;
+            z-index: 25;
+            transform:rotate(60deg);
+            border: 1px solid rgb(90,42,48);
+        }
+        body .box .body0 .hand .hander2::before{
+            content:'';
+            width: 8px;
+            position: absolute;
+            top:-59px;
+            left: 763px;
+            z-index: 25;
+            transform:rotate(60deg);
+            border: 1px solid rgb(90,42,48);
+        }
+
+
+        /* 脚------------------ */
+        body .box .body0 div[class^=foot1]{
+             width: 40px;
+             height: 12px;
+             border: 1px solid rgb(90,42,48);
+             border-radius:28px;
+             border-right: none;
+             background-color: rgb(241,196,165);
+             position: relative;
+             z-index: 20;
+             transform:rotate(-90deg)
+        }
+        body .box .body0 .foot .foot1left{  
+             top:-42px;
+             left: 637px;
+        }
+        body .box .body0 .foot .foot1right{
+            top:-56px;
+            left: 692px;
+            
+        }
+        body .box .body0 .foot .footer1{
+            position:absolute;
+            left:633px;
+            top:0px;
+            width: 40px;
+            height: 30px;
+            border-radius:50%;
+            border:1px solid #000;
+            background-color: rgb(48,79,143);
+            transform:rotate(-45deg);
+        }
+        body .box .body0 .foot .footer1::after{
+            content:'';
+            width: 20px;
+            height: 30px;
+            border: 1px solid rgb(90,42,48);
+            border-radius:100% 0 0 100%/50%;
+            border-right: none;
+            background-color: #fff;
+            position: absolute;
+            left:-3px;
+            top:-1px;
+            z-index: 6;;
+        }
+        body .box .body0 .foot .footer2{
+            position:absolute;
+            left:698px;
+            top:0px;
+            width: 40px;
+            height: 30px;
+            border-radius:50%;
+            border:1px solid #000;
+            background-color: rgb(48,79,143);
+            transform:rotate(225deg);
+        }
+        body .box .body0 .foot .footer2::after{
+            content:'';
+            width: 20px;
+            height: 30px;
+            border: 1px solid rgb(90,42,48);
+            border-radius:100% 0 0 100%/50%;
+            border-right: none;
+            background-color: #fff;
+            position: absolute;
+            left:-3px;
+            top:-1px;
+            z-index: 6;
+        }
     </style>
 </head>
 <body>
@@ -817,7 +1135,40 @@
                 <div class="xiantiao6"></div>
             </div>
             <div class="rightcover"></div>
+
+
+            <!-- 身体 -->
+            <div class="body0">
+                <div class="uhair43"></div>
+                <div class="uhair44"></div>
+                <div class="uhair45"></div>
+                <div class="uhair46"></div>
+                <div class="uhair47"></div>
+                <div class="uhair48"></div>
+                <div class="uhair49"></div>
+                <div class="uhair50"></div>
+                <div class="uhair51"></div>
+                <div class="uhair52"></div>
+                <div class="uhair53"></div>
+                <div class="uhair54"></div>
+                <div class="uhair55"></div>
+                <div class="uhair56"></div>
+                <div class="uhair57"></div>
+                <div class="hand">
+                    <div class="handleft"></div>
+                    <div class="hander1"></div>
+                    <div class="handright"></div>
+                    <div class="hander2"></div>
+                </div>
+                <div class="foot">
+                    <div class="foot1left"></div>
+                    <div class="footer1"></div>
+                    <div class="foot1right"></div>
+                    <div class="footer2"></div>
+                </div>
+            </div>
         </div>
+        
     </div>
 </body>
 </html>
